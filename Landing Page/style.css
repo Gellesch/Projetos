@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2? family= Righteous & family= Roboto:wght@300;900 & exibir=trocar'); 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 100%;
+    background: linear-gradient(68.15deg, #050505 0%, #0a0830 100%);
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+    background: url('Imagens/WI_wallpaper_bg.jpg')
+}
+
+.avatar{
+    height: 62px;
+    border-radius: 50%;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+
+.download-curriculum{
+    background-color: transparent;
+    border: none;
+}
+
+.download-carta-apresentacao{
+    background-color: transparent;
+    border: none;
+}
+
+.site-wiquip{
+    background-color: transparent;
+    border: none;
+}
+
+.menu-item {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.conteudo{
+    border-top: 0.4px solid #ffffff;
+    margin-bottom: 48px;
+    background: url('Imagens/WI_wallpaper_bg.jpg')
+}
+
+.dados{
+    margin-top: 20px;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.titulo{
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
+    font-size: 37px;
+}
+
+.Foto{
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+}
+
+.subtitulo{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 24px;
+}
+
+.conteudo2{
+    border-top: 0.4px solid #ffffff;
+    margin-bottom: 20px;  
+}
+
+.links{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.link:hover{
+    background-color: white;
+}
+
+.objetivo{
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+    font-size: 27px;
+    color: white;
+}
+
+.subtitulo{
+    font-family: 'Roboto', sans-serif;
+    font-weight:700;
+    font-size: 20px;
+    color: white;
+}
+
+.curriculo{
+    border-top: 0.4px solid #ffffff;
+    margin-bottom: 20px;   
+    margin-top: 20px;
+}
+
+.cursos{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.competencias{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.cert{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.profissional{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.empresa1{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.empresa2{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.qualificacoes{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.academicos{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.idiomas{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.aperfeicoamento{
+    margin-bottom: 20px;   
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.destaque{
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+    font-size: 18px;
+    color: white;
+}
+
+.paragrafo{
+    font-family: 'Roboto', sans-serif;
+    font-weight:400;
+    font-size: 15px;
+    color: white;
+}
+
+.rodape{
+    border-top: 0.4px solid #ffffff;
+    margin-bottom: 48px;
+    background: url('Imagens/WI_wallpaper_bg.jpg')
+}
