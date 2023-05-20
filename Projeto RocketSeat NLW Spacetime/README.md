@@ -2,14 +2,15 @@
     <img src=".github/Thumbnail.png" alt="tela do projeto" width="100%" />
 </p>
 
-    ##Projeto🖥️
-    Este é projeto Web Responsivo de uma capsula do tempo para exibir memórias em uma linha do tempo.
+## Projeto🖥️
+Este é projeto Web Responsivo de uma capsula do tempo para exibir memórias em uma linha do tempo.
 
-    ##Tecnologias🚀
-    Este projeto foi desenvolvido durante o NLW da Rocketseat com as seguintes tecnologias:
-    -HTML
-    -CSS
-    -GIT  e  GITHUB
+## Tecnologias🚀
+Este projeto foi desenvolvido durante o NLW da Rocketseat com as seguintes tecnologias:
+
+-HTML
+-CSS
+-GIT  e  GITHUB
 
 ## Layout 🏷️
 
