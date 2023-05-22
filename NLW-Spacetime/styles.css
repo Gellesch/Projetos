@@ -1,33 +1,40 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
+:root {
     font-size: 16px;
 }
 
 /*customizar barra de rolagem */
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 6px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: #2c2c31;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: linear-gradient(#d39e33, #ed5636, #633bbc) padding-box, linear-gradient(260deg, #d39e33, #ed5636, #633bbc) border-box;
 }
 
-@keyframes entering{
-    from { opacity: 0; transform: translateY(-200px);}
-    to { opacity: 1; transform: translateY(0);}
+@keyframes entering {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-body{
+body {
     background-color: #121215;
     color: #EAEAEA;
     font-family: 'Roboto', sans-serif;
@@ -37,7 +44,7 @@ body{
     grid-template-rows: 100vh;
 }
 
-nav{
+nav {
     padding: 64px;
     grid-area: timeline;
     overflow-y: scroll;
@@ -52,17 +59,17 @@ nav{
     margin-bottom: 64px;
 }
 
-.memory small{
+.memory small {
     color: #BEBEBF;
     font-size: 0.75rem;
 }
 
-.memory h1{
+.memory h1 {
     font-size: 2rem;
     color: #EAEAEA;
 }
 
-.memory img{
+.memory img {
     width: 100%;
     height: 280px;
     object-fit: cover;
@@ -70,14 +77,14 @@ nav{
     transition: transform 0.3s ease-in-out;
 }
 
-.memory div{
+.memory div {
     width: 100%;
     height: 280px;
     overflow: hidden;
     border-radius: 8px;
 }
 
-.memory:hover img{
+.memory:hover img {
     transform: scale(1.1);
 }
 
@@ -102,11 +109,11 @@ aside {
     background-size: auto 100%;
 }
 
-aside *{
+aside * {
     animation: entering 0.7s ease-in-out;
 }
 
-aside img:nth-child(2){
+aside img:nth-child(2) {
     width: 160px;
     height: 160px;
     border-radius: 50%;
@@ -114,39 +121,38 @@ aside img:nth-child(2){
     background: linear-gradient(#d39e33, #ed5636, #633bbc) padding-box, linear-gradient(260deg, #d39e33, #ed5636, #633bbc) border-box;
 }
 
-aside p{
+aside p {
     font-size: 2rem;
     text-align: center;
 }
 
-aside span{
+aside span {
     font-size: 0.75rem;
     color: #9e9ea0;
 }
 
-@media (max-width: 768px){
-    :root{
+@media (max-width: 768px) {
+    :root {
         font-size: 14px;
     }
 
-    body{
+    body {
         grid-template-columns: 1fr;
         grid-template-rows: 0.2fr 0.8fr;
         grid-template-areas:
-        "profile"
-        "timeline";
+            "profile"
+            "timeline";
     }
 
-    aside{
+    aside {
         border-right: none;
         padding: 32px 12px;
     }
-    
-    nav{
+
+    nav {
         overflow-y: visible;
         padding: 22px;
     }
 
 
 }
-
