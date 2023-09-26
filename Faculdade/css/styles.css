@@ -203,7 +203,7 @@
   
   .detail {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 5%;
     margin-bottom: 4em;
@@ -214,6 +214,7 @@
   }
   
   .detail h3 {
+    color: var(--primary);
     margin-bottom: 1em;
     font-size: 2em;
     font-weight: 500;
@@ -227,6 +228,7 @@
   .detail-description {
     width: 100%;
     padding-left: 2em;
+    text-align: center;
   }
   
   #detail-3 .detail-description {
@@ -242,7 +244,7 @@
   }
   
   .detail-description ul li {
-    font-weight: bold;
+    text-align: justify;
   }
   
   #cta {
@@ -281,6 +283,7 @@
   }
   
   #footer h3 {
+    color: var(--primary);
     font-size: 1.8em;
     margin-bottom: 0.5em;
   }
