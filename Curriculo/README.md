@@ -3,7 +3,7 @@
 </p>
 
 ## Projeto🖥️
-Este é projeto Web Responsivo do meu currículo profissional.
+Este é um projeto Web Responsivo do meu currículo profissional.
 
 ## Tecnologias🚀
 Este projeto foi desenvolvido com as seguintes tecnologias:
