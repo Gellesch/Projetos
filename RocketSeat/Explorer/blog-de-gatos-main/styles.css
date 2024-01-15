@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --color-base-black-500: hsl(0, 0%, 0%);
+    --input-background-color: hsla(0, 0%, 100%, 0.2);
+    --input-placeholder-color: hsl(0, 0%, 100%);
+}
+
+body {
+    font-size: 1.6rem;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.page {
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100%;
+}
+
+.header {
+    background-color: var(--color-base-black-500);
+    padding: 1.2rem 2.8rem;
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+}
+
+.header__content img {
+    width: 50px;
+    height: 50px;
+}
+
+.header__content, 
+.content_headline,
+.article__text,
+.sidebar__section,
+.content {
+    max-width: 121.6rem;
+    margin: 0 auto;
+}
+
+.search__label {
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.search {
+    flex: 1;
+}
+
+.search__input {
+    border: none;
+    border-radius: 4px;
+    background-color: var(--input-background-color);
+    padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+
+    width: 100%;
+}
+
+.search__input::placeholder {
+    color: var(--input-placeholder-color);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.avatar {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+}
+
+.figure__banner {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+
+    animation: blink 1s backwards;
+}
+
+.content {
+    display: grid;
+    gap: 3.4rem;
+}
+
+.content_headline {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+    padding: 3.1rem 2.2rem;
+}
+
+.content__title {
+    font-size: 2.4rem;
+}
+
+.voting {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.voting__btn {
+    border-radius: 50%;
+    background-color: var(--color-base-black-500);
+    display: grid;
+    place-content: center;
+
+    height: 4rem;
+    width: 4rem;
+}
+
+.article__text,
+.sidebar {
+    padding: 0rem 2.2rem;
+}
+
+/* sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    padding-bottom: 4.1rem;
+    animation: to-left 0.3s .4s backwards;
+}
+
+.sidebar__section {
+    display: grid;
+    gap: 3.2rem;
+}
+
+.related__article {
+    --delay: .8s;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    grid-template-rows: 8.4rem;
+    gap: 1.6rem;
+
+    animation: to-left 1s var(--delay) backwards;
+}
+
+.thumbnail {
+    overflow: hidden;
+    border-radius: .5rem;
+}
+
+.related__img {
+    display: block;
+    object-fit: cover;
+    object-position: center 20%;
+
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+    filter: hue-rotate(0deg) saturate(0%);
+}
+
+.related__article:hover .related__img {
+    transform: scale(1.3) rotate(10deg);
+    filter: hue-rotate(80deg) saturate(130%);
+}
+
+.related__details {
+    display: grid;
+}
+
+.related__title {
+    font-size: 1.8rem;
+}
+
+.related__info {
+    font-size: 14px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.footer {
+    background-color: var(--color-base-black-500);
+    color: var(--input-placeholder-color);
+
+    padding: 1.6rem;
+    text-align: center;
+}
+
+
+@media screen and (min-width: 830px) {
+    .content {
+        grid-template-areas:
+        "main sidebar";
+
+        padding: 4.4rem 3rem;
+    }
+
+    .figure__banner {
+        border-radius: 5px;
+    }
+    
+    .content_headline {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3.1rem 0rem;
+    }
+
+    .article__text {
+        padding: initial;
+    }
+
+    .content_main {
+        grid-area: main;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        padding: initial;
+    }
+
+    .sidebar__section {
+        max-width: 38.2rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .content {
+        padding: 4.4rem 0rem 4rem;
+    }
+}
+
+@keyframes to-left {
+    0% {
+        transform: translateX(130%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
