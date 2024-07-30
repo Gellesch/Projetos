@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>Calculadora IMC</title>
+
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="./script.js" defer type="module"></script>
+</head>
+
+<body>
+  <main>
+    <form>
+      <legend>Cálculo de IMC</legend>
+
+      <fieldset>
+        <div class="input-wrapper">
+          <label for="">Peso (kg)</label>
+          <input id="weight-input" type="number" min="0" max="1000" placeholder="72">
+        </div>
+        <div class="input-wrapper">
+          <label for="">Altura (cm)</label>
+          <input id="height-input" type="number" min="0" max="500" placeholder="165">
+        </div>
+      </fieldset>
+
+      <button id="btn-imc">
+        Calcular IMC
+
+        <img src="assets/icons/arrow-right.svg" alt="right arrow icon">
+      </button>
+    </form>
+  </main>
+
+  <div class="modal-wrapper">
+    <div class="modal-card">
+      <button id="close">
+        <img src="assets/icons/close.svg" alt="X for closing modal">
+      </button>
+
+      <p>Seu IMC é de <span id="imc-value"></span></p>
+    </div>
+  </div>
+
+  <div class="notification error">
+    <p class="hide" id="error-1">Valor de Peso deve ser maior que zero</p>
+    <p class="hide" id="error-2">Valor de Altura deve ser maior que ser zero</p>
+    <p class="hide" id="error-3">Valor do Peso e Altura devem ser maiores que zero</p>
+    <p class="hide" id="error-4">Digite somente números e que sejam maiores que zero</p>
+  </div>
+</body>
+
+</html>
