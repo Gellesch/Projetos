@@ -1,7 +1,7 @@
 <h1 align="center"> BISCOITO DA SORTE</h1>
 
 <p align="center">
-Este é mias um projeto para estudos do curso da Rocketseat, o Explorer. <br/>
+Este é mais um projeto para estudos do curso da Rocketseat, o Explorer. <br/>
 
 
 <p align="center">
@@ -33,8 +33,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 O Biscoito da sorte é uma aplicação que ao clicar no biscoito gera uma frase motivacional.
-
-- [Acesse o projeto finalizado, online](https://gustavopareschi.github.io/BiscoitodaSorte)
 
 ## 🔖 Layout
 
