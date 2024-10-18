@@ -297,19 +297,17 @@ audio{
   border-radius: 10px;       /* Borda arredondada */
   display: flex;
   /*text-align: center;*/
-  align-items: center;
-  
-  /*justify-content: center;*/
+  align-items: center;  /*justify-content: center;*/
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(0rem, 0rem + 1.35vw, 7.875rem);
   line-height: 2.25rem;
-  color: #8a8a8f;
+  color: #c4c4cc;
 }
 
 .dark-mode .tempo {
   /*background-color: #2e292c; /* Definindo um fundo cinza escuro para o modo dark */
   background-color: #2e292c; /* Definindo um fundo cinza escuro para o modo dark */
-  color: #8a8a8f; /* Cor do texto para o modo dark */
+  color: #c4c4cc; /* Cor do texto para o modo dark */
 }
 
 .tempimg {
