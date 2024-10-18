@@ -116,6 +116,7 @@
     </main>
   </div>
   <textarea id="blocoDeNotas" maxlength="1000" placeholder=Notas></textarea>
+  <div id="contador">0 / 1000 caracteres</div>
 
   <script type="module" src="./assets/js/index.js"></script>
 
@@ -162,6 +163,20 @@
     // Chamar a função fetchWeather ao carregar a página
     window.onload = fetchWeather;
   </script>
+
+  <script>
+// Obtém o elemento textarea e o contador pelo ID
+const blocoDeNotas = document.getElementById('blocoDeNotas');
+const contador = document.getElementById('contador');
+
+// Adiciona um EventListener para capturar o evento 'input'
+blocoDeNotas.addEventListener('input', function(event) {
+    const texto = event.target.value; // Obtém o texto do campo
+    const numCaracteres = texto.length; // Conta o número de caracteres
+    contador.textContent = `${numCaracteres} / 1000 caracteres`; // Atualiza o contador
+});
+
+    </script>
 
 </body>
 
