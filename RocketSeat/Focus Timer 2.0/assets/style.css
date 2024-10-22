@@ -296,12 +296,12 @@ audio{
   border: 2px solid #2e292c;    /* Borda do campo */
   border-radius: 10px;       /* Borda arredondada */
   display: flex;
-  /*text-align: center;*/
   align-items: center;  /*justify-content: center;*/
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(0rem, 0rem + 1.35vw, 7.875rem);
   line-height: 2.25rem;
   color: #c4c4cc;
+margin-top: auto;
 }
 
 .dark-mode .tempo {
@@ -316,6 +316,45 @@ audio{
     display: block; /* Necessário para centralização */
     margin: 0 auto; /* Centraliza a imagem */
 }
+
+/* Estilo do círculo de carregamento */
+.loader {
+  border: 6px solid #f3f3f3;   /* Cor da borda */
+  border-radius: 50%;          /* Borda circular */
+  border-top: 6px solid #02799d; /* Cor da borda superior (efeito de carregamento) */
+  width: 40px;
+  height: 40px;
+  animation: spin 5s linear infinite; /* Duração de 4 segundos */
+  margin: 0 auto;  /* Centraliza horizontalmente */
+}
+
+/* Animação de rotação */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilo para ocultar o conteúdo até os dados serem carregados */
+.hidden {
+  display: none;
+}
+
+/* Centralizar a animação no bloco */
+.tempo {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  width: 320px;
+  height: 70px;
+  padding: 10px;
+  border: 2px solid #2e292c;
+  border-radius: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(0rem, 0rem + 1.35vw, 7.875rem);
+  line-height: 2.25rem;
+  color: #c4c4cc;
+}
+
 
 .hora {
   /*width: 60px; /* Largura e altura iguais para formar um quadrado */
@@ -407,10 +446,21 @@ audio{
     gap: 2rem;
   }
 
+.tempo {
+margin-top: 220px;
+font-size: clamp(0rem, 0rem + 1.5rem, 7.875rem);
+line-height: 2.25rem;
+}
+
   #blocoDeNotas {
     margin-top: 30px;
     width: 100%;
     height: 100px;
     padding: 5px;
   }
+
+  #contador {
+    font-size: 0.7rem;
+    margin-bottom: 100px;
+}
 }
