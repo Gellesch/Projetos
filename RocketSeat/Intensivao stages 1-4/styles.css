@@ -17,12 +17,112 @@
   --accent-color: #b52184;
   --text-base-color: #312d64;
   --gradient-background: linear-gradient(96.21deg, #343193 0%, #302c63 99.68%);
-}
+  }
 
 body {
   background: var(--light-gray);
   font-family: var(--base-font);
 }
+
+body.loading {
+  overflow: hidden; /* Evita rolagem durante o loading */
+  visibility: hidden; /* Oculta o conteúdo do site */
+}
+
+body.loading #loading-screen {
+  visibility: visible; /* Mantém a tela de loading visível */
+  opacity: 1;
+}
+
+body.loaded {
+  visibility: visible; /* Mostra o conteúdo após o carregamento */
+}
+
+/* Loading screen */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white; /* Fundo branco */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.rocket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  position: relative;
+  width: 150px;
+}
+
+.rocket {
+  width: 150px;
+  height: auto;
+  animation: fly 5s ease-in-out forwards; /* Animação do foguete */
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 0s 1s;
+}
+
+.rocket {
+  width: 100%;
+  animation: rocketLaunch 2s ease-out infinite;
+}
+
+
+@keyframes rocketLaunch {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Barra de carregamento */
+.loading-bar {
+  width: 300px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.loading-fill {
+  width: 0;
+  height: 100%;
+  background-color: #b52184;
+  border-radius: 5px;
+  animation: loadProgress 5s forwards;
+}
+
+@keyframes loadProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Ocultar tela de loading após o carregamento */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 0s 1s;
+}
+
 
 img {
   width: 100%;
@@ -73,7 +173,8 @@ textarea {
 /* Hero Section */
 #hero {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between; /* Espaça os elementos igualmente entre as extremidades */
+  align-items: center; /* Alinha verticalmente ao centro */
   padding: 0 3.4rem 9.3rem 3.2rem;
   width: 100%;
   height: 100vh;
@@ -91,9 +192,8 @@ textarea {
 
 .navigation {
   margin-top: 65px;
-  margin-left: 10px;
   position: relative;
-  width: 600px;
+  width: 95%;
   height: 83px;
   background: linear-gradient(45deg, #312d64, #343193);
   border: 6px solid #06021b;
@@ -102,6 +202,22 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
+.navigation {
+  margin-top: 65px;
+  width: 95%;
+  position: relative;
+  height: 83px;
+  background: linear-gradient(45deg, #312d64, #343193);
+  border: 6px solid #06021b;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto; /* Centraliza horizontalmente */
+}
+
 
 .navigation ul {
   display: flex;
@@ -214,15 +330,19 @@ textarea {
 }
 
 .astronaut {
-  margin-top: 0px;
+  flex: 1; /* Ocupa 50% do espaço disponível */
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  justify-content: flex-end; /* Mantém o astronauta no lado direito */
+}
+
+.astronaut img {
+  max-width: 100%;
+  height: auto; /* Mantém a proporção da imagem */
 }
 
 .hero-cta {
-  margin-top: 0px;
-  margin-left: 10px;
+  flex: 1; /* Permite que a .hero-cta ocupe o espaço restante */
+  margin-right: 20px; /* Espaço entre o texto e o astronauta */
 }
 
 #hero .hero-cta p {
@@ -254,12 +374,19 @@ textarea {
 }
 
 
+.audio-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Alinha verticalmente */
+  width: 100%; /* Garante que o contêiner ocupe toda a largura */
+  height: 10vh; /* Opcional: ocupa toda a altura da tela */
+}
+
 audio {
-  width: 600px;
+  width: 250px;
   height: 40px;
   border: 6px solid #06021b;
   border-radius: 10px;
-  margin-left: 10px;
   background-color: #343193;
 }
 
@@ -323,7 +450,7 @@ audio {
   color: var(--text-base-color);
   font-weight: 600;
   font-size: 1.6rem;
-}
+  }
 
 #contact form input::placeholder {
   padding-left: 2.8rem;
@@ -356,7 +483,7 @@ audio {
 /* Footer Section */
 footer {
   background: var(--gradient-background);
-
+  width: 100%;
   padding: 3.2rem 1.6rem;
 }
 

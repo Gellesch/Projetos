@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mire as Estrelas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="./images/galaxy_1734167.png " type="image/x-png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Mars Rover Photos</title>
+</head>
+ <style>
+        /* Exemplo de estilo para a seção de cards */
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 100%; /* Ajuste conforme necessário */
+            margin: auto;
+        }
+        .card {
+            border: 1px solid #ccc; /* Personalize conforme necessário */
+            border-radius: 8px;
+            overflow: hidden;
+            width: 400px; /* Ajuste conforme necessário */
+            margin: 10px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo horizontalmente */
+        }
+        .card img {
+            width: 100%; /* Faz a imagem ocupar 100% da largura do card */
+            height: auto; /* Mantém a proporção da imagem */
+            max-height: 350px; /* Limite de altura para as imagens */
+            object-fit: cover; /* Faz a imagem cobrir o espaço do card */
+            border-bottom: 1px solid #ccc           
+        }
+
+        .photo-details {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+<body>
+
+    <div class="hero-top">
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"><img src="./images/planet_1146246.png" alt=""></ion-icon>
+                        </span>
+                        <span class="text">Home</span>
+                        <span class="circle"></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="person-outline"><img src="./images/saturn_1146291.png"></ion-icon>
+                        </span>
+                        <span class="text">Profile</span>
+                        <span class="circle"></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"><img src="./images/mars_1146292.png"></ion-icon>
+                        </span>
+                        <span class="text">Message</span>
+                        <span class="circle"></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="camera-outline"><img src="./images/earth_10639144.png"></ion-icon>
+                        </span>
+                        <span class="text">Photos</span>
+                        <span class="circle"></span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"><img src="./images/sun_1146259.png"></ion-icon>
+                        </span>
+                        <span class="text">Settings</span>
+                        <span class="circle"></span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+
+        <h1>Mars Rover Photos</h1>
+        <p>Imagens capturadas pelo rover Curiosity em Marte</p>
+    
+        <div class="cards" id="cards">
+        <div class="card" id="card1"></div>
+        <div class="card" id="card2"></div>
+        <div class="card" id="card3"></div>
+        <div class="card" id="card4"></div>
+        <div class="card" id="card5"></div> <!-- Card 5 -->
+        <div class="card" id="card6"></div> <!-- Card 6 -->
+        </div>
+    
+        <script>
+            const apiKey = 'm2NNosC0J5IuvVnSGMdbghLIlg0Ulpz8NoG3vSnx'; // Sua chave de API
+            const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=${apiKey}`;
+            let photos = []; // Armazenar as fotos aqui
+    
+            // Função para buscar e exibir fotos do rover
+            async function getMarsRoverPhotos(sol = 1000) {
+                try {
+                    const response = await fetch(apiUrl + `&sol=${sol}`);
+                    const data = await response.json();
+    
+                    if (data.photos && data.photos.length > 0) {
+                        photos = data.photos; // Armazenar as fotos
+                        updateCards(); // Atualiza os cards com fotos
+                        setInterval(updateCards, 1200000); // Troca as fotos a cada 5 segundos
+                    } else {
+                        console.log('Nenhuma foto disponível. Tente novamente mais tarde.');
+                    }
+                } catch (error) {
+                    console.error('Erro ao buscar as fotos:', error);
+                    document.getElementById('cards').innerHTML = '<p>Erro ao carregar fotos. Tente novamente mais tarde.</p>';
+                }
+            }
+    
+            // Função para atualizar os cards com fotos aleatórias
+            function updateCards() {
+                const cardElements = [
+                    document.getElementById('card1'),
+                    document.getElementById('card2'),
+                    document.getElementById('card3'),
+                    document.getElementById('card4'),
+                    document.getElementById('card5'),
+                    document.getElementById('card6')
+                ];
+    
+                // Embaralha as fotos e seleciona as 4 mais recentes
+                const shuffledPhotos = photos.sort(() => 0.5 - Math.random()).slice(0, 6);
+                
+                // Atualiza os cards com novas fotos
+                cardElements.forEach((card, index) => {
+                    card.innerHTML = `
+                        <img src="${shuffledPhotos[index]?.img_src}" alt="Foto tirada em Marte">
+                        <div class="photo-details">
+                            <p><strong>Rover:</strong> ${shuffledPhotos[index]?.rover.name}</p>
+                            <p><strong>Câmera:</strong> ${shuffledPhotos[index]?.camera.full_name}</p>
+                            <p><strong>Data terrestre:</strong> ${shuffledPhotos[index]?.earth_date}</p>
+                        </div>
+                    `;
+                });
+            }
+    
+            // Ao carregar a página, buscar fotos disponíveis
+            window.onload = () => getMarsRoverPhotos();
+        </script>
+                <script src="spaceinvaders.js"></script>
+</body>
+
+</html>
