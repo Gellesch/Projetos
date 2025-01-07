@@ -2,22 +2,33 @@
 <html lang="pt-br">
 
 <head>
+  <!-- Declaração do conjunto de caracteres para o UTF-8 -->
   <meta charset="UTF-8" />
+  <!-- Configurações de compatibilidade com o Internet Explorer -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Responsividade, garantindo que o site se ajuste ao tamanho da tela -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Definição de um ícone de favorito (favicon) usando um emoji -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>" />
+
+  <!-- Título da página -->
   <title>Focus Timer 2.0</title>
 
+  <!-- Preconexão para carregar fontes externas mais rápido -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonte personalizada do Google Fonts: Roboto, peso 500 -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
 
+  <!-- Estilos externos do arquivo CSS -->
   <link rel="stylesheet" href="./assets/style.css" />
 </head>
 
 <body>
   <div id="app">
+    <!-- Container para alternância entre modos claro e escuro -->
     <div class="toggle-mode-container">
       <button id="sun" class="toggle-dark-mode">
         <img src="./assets/imgs/sun.svg" alt="Imagem de um sol, representa o modo claro da aplicação" />
@@ -29,8 +40,8 @@
         <p><span id="horario"></span></p>
       </div>
     </div>
-  
 
+    <!-- Seção que mostra o clima, com um ícone de carregamento enquanto espera -->
     <div class="tempo">
       <section id="weather">
         <div id="loading" class="loader"></div>
@@ -38,14 +49,17 @@
         <p id="weather-description" class="hidden">Carregando descrição...</p>
       </section>
     </div>
-    
+
+    <!-- Seção principal que exibe o timer e seus controles -->
     <main>
       <section id="timer-and-controls">
         <h1 id="timer">
           <span id="minutes">25</span><span>:</span><span id="seconds">00</span>
         </h1>
 
+        <!-- Botões de controle do timer (play, pause, adicionar e remover tempo) -->
         <div id="controls">
+          <!-- Ícone SVG de play -->
           <button class="btn-play">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -53,6 +67,7 @@
                 fill="#323238" />
             </svg>
           </button>
+          <!-- Botões semelhantes para parar, adicionar e remover tempo -->
           <button class="btn-stop">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -75,6 +90,8 @@
             </svg>
           </button>
         </div>
+
+        <!-- Rádio para música de fundo -->
         <audio controls autoplay>
           <source
             src="https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_ALPHAFM_ADP.aac?dist=site-alphafm"
@@ -83,6 +100,7 @@
         </audio>
       </section>
 
+      <!-- Seção de sons relaxantes com controles de volume -->
       <section id="sounds">
         <button class="btn-forest">
           <svg width="45" height="56" viewBox="0 0 45 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +110,7 @@
           </svg>
           <input id="volume-forest" class="volume" type="range" min="0" max="100" />
         </button>
+        <!-- Botões para outros sons (chuva, floresta, etc.) -->
         <button class="btn-rain">
           <svg width="53" height="56" viewBox="0 0 53 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -122,91 +141,107 @@
   <textarea id="blocoDeNotas" maxlength="1000" placeholder=Notas></textarea>
   <div id="contador">0 / 1000 caracteres</div>
 
-<!-- javascript --> 
+  <!-- javascript -->
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>  
+  <!-- Inclusão da biblioteca Axios para realizar requisições HTTP -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+  <!-- Inclusão do arquivo JavaScript principal da aplicação -->
   <script type="module" src="./assets/js/index.js"></script>
 
+
+  <!-- Script que exibe a hora atual em tempo real -->
   <script>
+    // Função que atualiza o horário no formato HH:MM:SS
     function mostrarHora() {
-      const data = new Date();
-      const horas = data.getHours().toString().padStart(2, '0');
-      const minutos = data.getMinutes().toString().padStart(2, '0');
-      const segundos = data.getSeconds().toString().padStart(2, '0');
-      const horarioAtual = horas + ":" + minutos + ":" + segundos;
+      const data = new Date(); // Obtém a data e hora atuais
+      const horas = data.getHours().toString().padStart(2, '0'); // Formata a hora com 2 dígitos
+      const minutos = data.getMinutes().toString().padStart(2, '0'); // Formata os minutos
+      const segundos = data.getSeconds().toString().padStart(2, '0'); // Formata os segundos
+      const horarioAtual = horas + ":" + minutos + ":" + segundos; // Combina as partes em uma string no formato HH:MM:SS
+
+      // Atualiza o conteúdo do elemento com id 'horario' com o horário atual
       document.getElementById('horario').innerText = horarioAtual;
     }
-  
+    // Atualiza o horário a cada segundo
     setInterval(mostrarHora, 1000);
-   
+
+    // Exibe a hora imediatamente ao carregar a página
     mostrarHora();
   </script>
 
+  
+<!-- Script que busca e exibe as informações do clima -->
   <script>
-  async function fetchWeather() {
-    const apiKey = '8c6717f32df51d835c2208f785a9ae16'; 
-    const city = 'São Paulo'; 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
-  
-    try {
-      // Exibe a animação de carregamento
-      document.getElementById('loading').style.display = 'block';
-      document.getElementById('temperature').classList.add('hidden');
-      document.getElementById('weather-description').classList.add('hidden');
-  
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Erro ao buscar os dados do clima.');
+    // Função assíncrona para buscar dados climáticos de uma cidade
+    async function fetchWeather() {
+      const apiKey = '8c6717f32df51d835c2208f785a9ae16'; // Chave de API para a OpenWeatherMap
+      const city = 'São Paulo'; // Nome da cidade para a consulta
+      // URL para a API do OpenWeatherMap, incluindo a chave de API, cidade e parâmetros de idioma e unidades
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt`;
+
+      try {
+        // Exibe a animação de carregamento
+        document.getElementById('loading').style.display = 'block';
+        // Esconde a temperatura e a descrição do clima até que os dados sejam carregados
+        document.getElementById('temperature').classList.add('hidden');
+        document.getElementById('weather-description').classList.add('hidden');
+
+        // Realiza a requisição HTTP para a API do clima
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Erro ao buscar os dados do clima.');
+        }
+
+        // Converte a resposta para JSON
+        const data = await response.json();
+        const temperature = data.main.temp; // Obtém a temperatura
+        const weatherDescription = data.weather[0].description; // Obtém a descrição do clima
+
+        // Garante que a animação fique visível por 4 segundos
+        setTimeout(() => {
+          // Atualiza os dados do clima após 4 segundos
+          document.getElementById('temperature').innerText = `${temperature}°C`;
+          document.getElementById('weather-description').innerText = `${weatherDescription}`;
+
+          // Remove a animação de carregamento
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('temperature').classList.remove('hidden');
+          document.getElementById('weather-description').classList.remove('hidden');
+        }, 4000); // Espera de 4 segundos
+      } catch (error) {
+        console.error(error);
+        document.getElementById('weather-description').innerText = 'Não foi possível carregar os dados do clima.';
       }
-  
-      const data = await response.json();
-      const temperature = data.main.temp;
-      const weatherDescription = data.weather[0].description;
-  
-      // Garante que a animação fique visível por 4 segundos
-      setTimeout(() => {
-        // Atualiza os dados do clima após 4 segundos
-        document.getElementById('temperature').innerText = `${temperature}°C`;
-        document.getElementById('weather-description').innerText = `${weatherDescription}`;
-  
-        // Remove a animação de carregamento
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('temperature').classList.remove('hidden');
-        document.getElementById('weather-description').classList.remove('hidden');
-      }, 4000); // Espera de 4 segundos
-    } catch (error) {
-      console.error(error);
-      document.getElementById('weather-description').innerText = 'Não foi possível carregar os dados do clima.';
     }
-  }
-  
-  // Atualiza os dados a cada 5 minutos
-  window.onload = () => {
-    fetchWeather();
-    setInterval(fetchWeather, 300000); // 300000ms = 5 minutos
-  };
-  
-    
+
+    // Atualiza os dados a cada 5 minutos
+    window.onload = () => {
+      fetchWeather();
+      setInterval(fetchWeather, 300000); // 300000ms = 5 minutos
+    };
+
+
   </script>
 
   <script>
 
-const blocoDeNotas = document.getElementById('blocoDeNotas');
-const contador = document.getElementById('contador');
+    // Seleciona o elemento de texto onde o usuário irá digitar (bloco de notas) e o contador de caracteres
+    const blocoDeNotas = document.getElementById('blocoDeNotas');
+    const contador = document.getElementById('contador');
 
+    // Adiciona um listener que será acionado sempre que houver uma entrada de texto no bloco de notas
+    blocoDeNotas.addEventListener('input', function (event) {
+      const texto = event.target.value; // Obtém o texto digitado no bloco de notas
+      const numCaracteres = texto.length; // Conta o número de caracteres digitados
+      contador.textContent = `${numCaracteres} / 1000 caracteres`; // Atualiza o contador na página mostrando a quantidade de caracteres digitados e o limite
+    });
 
-blocoDeNotas.addEventListener('input', function(event) {
-    const texto = event.target.value; 
-    const numCaracteres = texto.length; 
-    contador.textContent = `${numCaracteres} / 1000 caracteres`; 
-});
+  </script>
 
-    </script>
+  <footer>
 
-<footer>
-
-</footer>
+  </footer>
 
 </body>
 

@@ -1,16 +1,15 @@
+/* Reset básico de margens, preenchimentos e box-sizing para todos os elementos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Definição de variáveis para cores e elementos */
 :root {
   --body-bg: #ffffff;
-
   --heading-fc: #323238;
-
   --controls-fc: #323238;
-
   --sounds-bg: #e1e1e6;
   --sounds-fc: #323238;
   --sounds-volume-input: #323238;
@@ -22,13 +21,11 @@
   --volume-input-active-c: #ffffff;
 }
 
+/* Tema escuro (dark mode) com variáveis de cores alteradas */
 .dark-mode {
   --body-bg: #121214;
-
   --heading-fc: #ffffff;
-
   --controls-fc: #c4c4cc;
-
   --sounds-bg: #2e292c;
   --sounds-fc: #c4c4cc;
   --sounds-volume-input: #ffffff;
@@ -40,10 +37,12 @@
   --volume-input-active-c: #ffffff;
 }
 
+/* Classe para esconder elementos */
 .hide {
   display: none;
 }
 
+/* Estilos gerais do body, centralizando o conteúdo */
 body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
@@ -52,12 +51,14 @@ body {
   place-content: center;
 }
 
+/* Estilo básico para botões */
 button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
+/* Container para o botão de alternância do modo escuro/claro */
 .toggle-mode-container {
   position: absolute;
   text-align: center;
@@ -65,22 +66,33 @@ button {
   right: 4rem;
 }
 
+/* Ícone de alternância de tema com transição suave */
 .toggle-dark-mode img {
   width: 2.25rem;
   height: 2.25rem;
+  transition: background-color 0.3s ease; /* Para uma transição suave */
 }
 
+/* Efeito de hover no ícone de alternância */
+.toggle-dark-mode img:hover {
+  background-color: var(--sounds-hover-bg);
+  border-radius: 50%; /* Para garantir que o fundo se ajuste à imagem circular */
+}
+
+/* Layout do elemento principal (timer e sons) usando grid */
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12rem;
 }
 
+/* Centralização do temporizador e botões de controle */
 #timer-and-controls {
   display: grid;
   place-content: center;
 }
 
+/* Estilo do temporizador (tamanho, fonte e cor) */
 #timer {
   font-weight: 500;
   font-size: clamp(5rem, 5rem + 8vw, 7.875rem);
@@ -90,6 +102,7 @@ main {
   margin-bottom: 1rem;
 }
 
+/* Estilos dos controles (botões de play, pause e stop) */
 #controls {
   display: flex;
   justify-content: center;
@@ -111,6 +124,7 @@ main {
   gap: 2rem;
 }
 
+/* Estilo dos botões de som (sons de ambiente) */
 #sounds button {
   padding: clamp(1rem, 1.5rem + 1vw, 1.5rem);
   border-radius: 1.5rem;
@@ -123,10 +137,12 @@ main {
   transition: background-color 0.5s;
 }
 
+/* Efeito de hover nos botões de som */
 #sounds button:hover {
   background-color: var(--sounds-hover-bg);
 }
 
+/* Estilo dos ícones SVG dentro dos botões de som */
 #sounds button svg {
   width: clamp(1.75rem, 1.75rem + 2vw, 2.75rem);
   height: clamp(2.5rem, 2.5rem + 2vw, 3.5rem);
@@ -136,6 +152,7 @@ main {
   fill: var(--sounds-fc);
 }
 
+/* Estilo do botão de som ativo */
 #sounds button.active-sound {
   background-color: var(--sounds-active-bg);
 }
@@ -144,28 +161,31 @@ main {
   fill: var(--sounds-active-fc);
 }
 
-/* input type=range styling */
+/* Estilos personalizados para o input de range (controle de volume) */
 input[type="range"] {
   height: 1.375rem;
-  -webkit-appearance: none;
+  -webkit-appearance: none; /* Remove o estilo padrão do controle em navegadores Webkit */
   background-color: transparent;
   margin-top: 2rem;
   width: 100%;
 }
 
+/* Estilo da trilha do controle de volume para navegadores Webkit */
 input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 0.25rem;
-  cursor: pointer;
-  animate: 0.2s;
+  cursor: pointer; /* Exibe o ponteiro quando o mouse passar sobre o controle */
+  animation: 0.2s;
   background: var(--volume-input-c);
   border-radius: 5px;
 }
 
+/* Quando o botão de som está ativo, a trilha muda de cor */
 button.active-sound input[type="range"]::-webkit-slider-runnable-track {
   background: var(--volume-input-active-c);
 }
 
+/* Estilo do polegar (parte que arrasta) do controle de volume */
 input[type="range"]::-webkit-slider-thumb {
   border: 0px solid var(--volume-input-c);
   height: 1rem;
@@ -177,19 +197,23 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -0.375rem;
 }
 
+/* Estilo do polegar quando o botão de som está ativo */
 button.active-sound input[type="range"]::-webkit-slider-thumb {
   border: 0px solid var(--volume-input-active-c);
   background: var(--volume-input-active-c);
 }
 
+/* Quando o controle de volume está focado, altera a trilha */
 input[type="range"]:focus::-webkit-slider-runnable-track {
   background: var(--volume-input-c);
 }
 
+/* Quando o botão de som está ativo e focado */
 button.active-sound input[type="range"]:focus::-webkit-slider-runnable-track {
   background: var(--volume-input-active-c);
 }
 
+/* Trilhas e polegares para navegadores Firefox (moz) */
 input[type="range"]::-moz-range-track {
   width: 100%;
   height: 0.25rem;
@@ -217,6 +241,7 @@ button.active-sound input[type="range"]::-moz-range-thumb {
   background: var(--volume-input-active-c);
 }
 
+/* Para navegadores Internet Explorer (ms) */
 input[type="range"]::-ms-track {
   width: 100%;
   height: 0.25rem;
@@ -276,6 +301,7 @@ button.active-sound input[type="range"]:focus::-ms-fill-upper {
   background: var(--volume-input-active-c);
 }
 
+/* Estilos para o elemento <audio> */
 audio {
   -webkit-user-select: none;
   /* Chrome/Safari */
@@ -288,8 +314,10 @@ audio {
   margin-top: 10px;
   border-radius: 10px;
   height: 30px;
+  background-color: var(--sounds-hover-bg);
 }
 
+/* Estilo da seção que exibe a temperatura */
 .tempo {
   width: 320px;
   /* Largura do campo de texto */
@@ -310,6 +338,7 @@ audio {
   margin-top: auto;
 }
 
+/* Versão dark-mode da classe .tempo */
 .dark-mode .tempo {
   /*background-color: #2e292c; /* Definindo um fundo cinza escuro para o modo dark */
   background-color: #2e292c;
@@ -318,6 +347,7 @@ audio {
   /* Cor do texto para o modo dark */
 }
 
+/* Estilo para a imagem da temperatura */
 .tempimg {
   width: 20%;
   /* Ajuste a largura conforme necessário */
@@ -345,7 +375,7 @@ audio {
   /* Centraliza horizontalmente */
 }
 
-/* Animação de rotação */
+/* Animação de rotação do círculo de carregamento */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -361,7 +391,7 @@ audio {
   display: none;
 }
 
-/* Centralizar a animação no bloco */
+/* Responsividade e centralização de elementos */
 .tempo {
   display: flex;
   justify-content: center;
@@ -379,7 +409,7 @@ audio {
   color: #c4c4cc;
 }
 
-
+/* Estilos da hora, incluindo suas versões dark-mode */
 .hora {
   /*width: 60px; /* Largura e altura iguais para formar um quadrado */
   /*height: 60px;
@@ -404,6 +434,7 @@ audio {
   /* Definindo um fundo cinza escuro para o modo dark */
 }
 
+/* Estilos do bloco de notas, incluindo suas versões dark-mode */
 #blocoDeNotas {
   width: 320px;
   /* Largura do campo de texto */
@@ -473,12 +504,10 @@ audio {
   /* Cor do texto do contador */
 }
 
-
-
 footer {
-
 }
 
+/* Estilos de responsividade */
 @media (max-width: 880px) {
   .toggle-mode-container {
     top: 1rem;
