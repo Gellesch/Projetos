@@ -112,6 +112,12 @@ main {
 #controls button svg {
   width: clamp(2rem, 2.5rem + 1vw, 3rem);
   height: clamp(2rem, 2.5rem + 1vw, 3rem);
+  transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+  border-radius: 50%;
+}
+
+#controls button svg:hover {
+  background-color: var(--sounds-hover-bg); /* Cor de fundo ao passar o mouse */
 }
 
 #controls button svg path {
