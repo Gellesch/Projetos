@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | Wiquip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/servicos.css">
+</head>
+
+<body>
+    <header>
+    <div class="img-sobre">
+      <img src="imagens/WI-icone-01.jpg" alt="Ícone Wiquip">
+    </div>
+    <h1>Nossos Serviços</h1>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <h2 class="titulo-animado">🔐 Segurança Eletrônica</h2>
+            <ul>
+                <li>Instalação de CFTV IP e analógico</li>
+                <li>Monitoramento remoto com acesso via smartphone</li>
+                <li>Integração com alarmes, sensores e cercas elétricas</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">🌐 Redes e Infraestrutura</h2>
+            <ul>
+                <li>Cabeamento estruturado</li>
+                <li>Projetos de redes Wi-Fi de alta performance</li>
+                <li>Expansão e upgrade de rede com foco em estabilidade e velocidade</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">🛠 Suporte Técnico</h2>
+            <ul>
+                <li>Atendimento remoto e presencial</li>
+                <li>Manutenção preventiva e corretiva de computadores e redes</li>
+                <li>Atendimento nível 2 e 3</li>
+                <li>Montagem e personalização de computadores gamers</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">💻 Web & Presença Digital</h2>
+            <ul>
+                <li>Sites institucionais e landing pages</li>
+                <li>Hospedagem e manutenção</li>
+                <li>Integração com redes sociais e sistemas</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">🧠 Consultoria em Segurança e TI</h2>
+            <ul>
+                <li>Análise de riscos e vulnerabilidades físicas e digitais</li>
+                <li>Planejamento estratégico de infraestrutura de segurança</li>
+                <li>Auditoria de segurança eletrônica e rede</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">☁️ Soluções em Nuvem</h2>
+            <ul>
+                <li>Implantação de backups em nuvem</li>
+                <li>Gerenciamento de e-mails corporativos</li>
+                <li>Armazenamento em nuvem para câmeras IP</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">📱 Automação Residencial e Comercial</h2>
+            <ul>
+                <li>Instalação e configuração de dispositivos inteligentes</li>
+                <li>Integração e automação de ambientes via IoT</li>
+            </ul>
+        </section>
+
+        <section class="fade-in">
+            <h2 class="titulo-animado">🔧 Manutenção e Otimização de Infraestrutura</h2>
+            <ul>
+                <li>Inventário e gestão de ativos de TI</li>
+                <li>Planejamento e organização de rack de rede</li>
+                <li>Limpeza técnica de equipamentos</li>
+            </ul>
+        </section>
+    </main>
+
+    <section class="mais-fotos">
+        <p>Para mais fotos, acesse nossas redes sociais:</p>
+
+        <a href="https://www.facebook.com/share/1APzpYmtXe/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/wiquip_tecnologia?igsh=NXdpdms5ejE1M2N1&utm_source=qr" target="_blank"
+            aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+    </section>
+
+    <section id="cupom">
+        <div class="texto">
+            <h5>Solicite seu Orçamento</h5>
+            <div class="botoes-orcamento">
+                <button onclick="window.open('https://forms.gle/5boAssaSv3ZaFm8N6', '_blank')" class="botao-email">
+                    <i class="fas fa-envelope"></i> Por E-mail
+                </button>
+                <button onclick="window.open('https://wa.me/5511958117257', '_blank')" class="botao-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Por WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="voltar-container">
+        <a href="index.html" class="botao-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </div>
+
+    <footer>
+        &copy; 2025 Wiquip - Todos os direitos reservados.
+    </footer>
+
+
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>

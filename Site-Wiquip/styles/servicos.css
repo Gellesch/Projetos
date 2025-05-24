@@ -1,0 +1,312 @@
+/* Importa FontAwesome (se ainda não tiver) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #2D2E83;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centraliza o conjunto horizontalmente */
+  gap: 20px; /* espaço entre imagem e título */
+}
+
+header .img-sobre img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.img-sobre img {
+  width: 50px; /* Ajuste conforme seu layout */
+  animation: glowRotate 3s linear infinite;
+  transform-origin: center center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+}
+
+@keyframes glowRotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px rgba(0, 200, 255, 1), 0 0 40px rgba(0, 200, 255, 0.8);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5);
+    filter: brightness(1);
+  }
+}
+
+/* Container principal */
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Seções com fade-in */
+.fade-in {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border-left: 6px solid #EC660D;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Título com animação */
+.titulo-animado {
+  color: #2D2E83;
+  margin-bottom: 15px;
+  position: relative;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titulo-animado::after {
+  content: '';
+  width: 40px;
+  height: 3px;
+  background-color: #EC660D;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+/* Lista interna */
+.fade-in ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.fade-in ul li {
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+.mais-fotos {
+  text-align: center;
+  margin: 40px 0;
+  color: #2D2E83;
+}
+
+.mais-fotos p {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.mais-fotos a {
+  color: #2D2E83;
+  font-size: 4rem; /* tamanho dos ícones */
+  margin: 0 10px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.mais-fotos a:hover {
+  color: #EC660D;
+}
+
+
+#cupom {
+  background: #2D2E83; /* fundo azul escuro para destacar */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 64, 128, 0.7);
+  margin: 40px auto;
+  max-width: 400px;
+}
+
+#cupom h5 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.botoes-orcamento button {
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px transparent;
+}
+
+.botao-email {
+  background-color: #0066cc;
+  animation: pulseBlue 2.5s infinite;
+}
+
+.botao-whatsapp {
+  background-color: #25D366;
+  animation: pulseGreen 2.5s infinite;
+}
+
+.botoes-orcamento button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Pulsar azul */
+@keyframes pulseBlue {
+  0%, 100% {
+    box-shadow: 0 0 6px #0066cc;
+  }
+  50% {
+    box-shadow: 0 0 20px #3399ff;
+  }
+}
+
+/* Pulsar verde (WhatsApp) */
+@keyframes pulseGreen {
+  0%, 100% {
+    box-shadow: 0 0 6px #25D366;
+  }
+  50% {
+    box-shadow: 0 0 20px #66e07f;
+  }
+}
+
+
+.voltar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.botao-voltar {
+  display: inline-block;
+  background-color: #EC660D;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-voltar i {
+  margin-right: 8px;
+}
+
+.botao-voltar:hover {
+  background-color: #cf560b;
+  transform: scale(1.05);
+}
+
+footer {
+  background-color: #2D2E83;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
+
+
+/* Animação de entrada para título principal */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .fade-in {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .titulo-animado {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+      #cupom {
+    max-width: 90%;
+    padding: 30px 15px;
+  }
+
+  #cupom h5 {
+    font-size: 1.5rem;
+  }
+
+  .botoes-orcamento {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .botoes-orcamento button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 480px) {
+    #cupom {
+    padding: 25px 10px;
+  }
+
+  #cupom h5 {
+    font-size: 1.3rem;
+  }
+
+  .botoes-orcamento button {
+    font-size: 0.85rem;
+    padding: 8px 15px;
+  }
+}
